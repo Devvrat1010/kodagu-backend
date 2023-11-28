@@ -37,7 +37,7 @@ This repository contains the source code for [Taskswift](https://taskswift.netli
 
 The backend of this application is deployed on [Render](https://render.com/). Ensure that you have the necessary configurations set up on your Render account.
 
-### Installation
+### Frontend
 
 1. Clone the repository:
 
