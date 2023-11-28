@@ -37,16 +37,13 @@ const validate=async (username,email,password)=>{
 router.post('/', async (req, res) => {
     try {
         const {email,password,username}=req.body
-        console.log(req.body,"req.body")
         const existingMail = await User.findOne({ email: email });
         if (existingMail){
-            console.log("existing mail")
             res.status(200).json({error:"Email already exists"})
             return
         }
         const existingUsername = await User.findOne({ username: username })
         if (existingUsername){
-            console.log("existing username")
             res.status(200).json({error:"Username already exists"})
             return
         }
@@ -54,7 +51,6 @@ router.post('/', async (req, res) => {
         const validated=await validate(username,email,password)
 
         if (validated===true){
-            console.log("validated")
             const hash=bcrypt.hashSync(password,saltRounds)
             const newUser=await User.create({
                 email:email,
@@ -66,8 +62,6 @@ router.post('/', async (req, res) => {
             return 
         }   
         else{
-            console.log("not validated")
-            console.log(validated.message)
             res.status(200).json({error:validated.message || "server side rror "})
             return 
         }

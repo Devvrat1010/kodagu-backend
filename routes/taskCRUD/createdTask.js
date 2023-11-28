@@ -6,7 +6,6 @@ router.get('/:assignee', async (req, res) => {
         const {assignee} = req.params;
         try {
             const tasks=await Task.find({assignee:assignee})
-            console.log(tasks,"tasks")
             res.status(200).json({message:tasks});
             return
         }

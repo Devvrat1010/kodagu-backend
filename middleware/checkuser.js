@@ -7,12 +7,9 @@ const maxAge=3*24*60*60
 
 router.get("/",async (req,res)=>{
     const token=req.get("Authorization")
-    console.log(token,"token")
     if (token){
         jwt.verify(token,process.env.JWT_SECRET_KEY,async (err,decodedToken)=>{
             if (err){
-                console.log(err,"err in decoded")
-                console.log("error ran in decoded")
                 res.status(500).json({error:err,message:"Server Error"})
                 return 
             }
@@ -22,7 +19,6 @@ router.get("/",async (req,res)=>{
                 return
             }
         })
-        // res.status(400).json({error:"No Token Found"})
         return 
     }
     else{

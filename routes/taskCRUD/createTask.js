@@ -13,7 +13,6 @@ router.post('/', async (req, res) => {
             }
             else{
                 const newTask = await Task.create(req.body);
-                console.log(newTask)
                 res.status(200).json({message:newTask,id:newTask._id});
             }
             return

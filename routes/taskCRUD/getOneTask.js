@@ -5,8 +5,6 @@ const Task=require('../../models/task')
 router.put('/:id', async (req, res) => {
     try {
         const {id}=req.params
-        console.log(typeof(id),"id")
-
         const task=await Task.findByIdAndDelete(
             id
         )
