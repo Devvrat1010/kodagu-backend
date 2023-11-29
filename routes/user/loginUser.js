@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
             const comparing=bcrypt.compareSync(password,curr.password)
             if (comparing){
                 const token=createToken(curr._id)
-                console.log(token)
                 res.status(200).json({message:curr,token:token})
                 return 
             }   
