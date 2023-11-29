@@ -2,12 +2,10 @@ const express=require('express');
 const router=express.Router();
 const Task=require('../../models/task')
 
-router.put('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const {id}=req.params
-        const task=await Task.findByIdAndDelete(
-            id
-        )
+        const task=await Task.findOne({_id:id})
         if (task){
             res.status(200).json({message:task})
             return 

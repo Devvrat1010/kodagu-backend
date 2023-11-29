@@ -19,11 +19,13 @@ const getAllTasks = require('./routes/taskCRUD/getAllTasks');
 const getOneTask = require('./routes/taskCRUD/getOneTask');
 const updateTask = require('./routes/taskCRUD/updateTask');
 const createdTask = require('./routes/taskCRUD/createdTask');
+const createMultipleTask = require('./routes/taskCRUD/createMultipleTask');
 
 // user routes
 const createUser = require('./routes/user/createUser');
 const loginUser = require('./routes/user/loginUser');
 const checkuser = require('./middleware/checkuser');
+
 
 // user connection
 app.use('/api/createUser', createUser);
@@ -37,6 +39,7 @@ app.use('/api/getAllTasks', getAllTasks);
 app.use('/api/getOneTask', getOneTask);
 app.use('/api/updateTask', updateTask);
 app.use('/api/createdTask', createdTask);
+app.use('/api/createMultipleTask', createMultipleTask);
 
 const startServer = async () => {
     try {
