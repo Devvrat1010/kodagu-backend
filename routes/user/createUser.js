@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
         }
     } catch (err) {
         console.log(err);
-        res.status(400).json({error:err,message:"Server Side Error"})
+        res.status(500).json({error:err,message:"Server Side Error"})
 
     }
 });

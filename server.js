@@ -1,4 +1,3 @@
-// dotenv
 require('dotenv').config();
 
 const express= require('express');
@@ -48,6 +47,7 @@ const startServer = async () => {
         });
     } catch (err) {
         console.log(err);
+        res.status(500).json({ error: err,message:"server did not start" })
     }
 }
 

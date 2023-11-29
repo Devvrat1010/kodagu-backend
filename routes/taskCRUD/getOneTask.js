@@ -13,7 +13,7 @@ router.put('/:id', async (req, res) => {
             return 
         }
         else{
-            res.status(400).json({error:"Task Does not exist"})
+            res.status(200).json({error:"Task Does not exist"})
             return 
         }
     } catch (err) {

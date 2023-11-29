@@ -10,19 +10,19 @@ router.get("/",async (req,res)=>{
     if (token){
         jwt.verify(token,process.env.JWT_SECRET_KEY,async (err,decodedToken)=>{
             if (err){
-                res.status(500).json({error:err,message:"Server Error"})
+                res.status(200).json({error:err,message:"Server Error"})
                 return 
             }
             else{
                 const user=await User.findById(decodedToken.id)
-                res.json({user:user})
+                res.status(200).json({user:user})
                 return
             }
         })
         return 
     }
     else{
-        res.json({error:"No Token Found"})
+        res.status(400).json({error:"No Token Found"})
         return 
     }
 })

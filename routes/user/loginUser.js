@@ -24,18 +24,18 @@ router.post('/', async (req, res) => {
                 return 
             }   
             else{
-                res.status(400).json({error:"Invalid Credentials"})
+                res.status(200).json({error:"Invalid Credentials"})
                 return
             }
         }
         else{
-            res.status(400).json({error:"Invalid Credentials"})
+            res.status(200).json({error:"Invalid Credentials"})
             return 
         }
 
     } catch (err) {
         console.log(err);
-        res.status(400).json({error:err,message:"server Side error"})
+        res.status(500).json({error:err,message:"server Side error"})
     }
 });
 
